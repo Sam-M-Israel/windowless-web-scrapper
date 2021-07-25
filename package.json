@@ -1,0 +1,24 @@
+{
+  "name": "windowless-browser",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "ts-node-dev index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "esm": "^3.2.25",
+    "n-readlines": "^1.0.0",
+    "node-fetch": "^2.6.1",
+    "puppeteer": "^9.1.1",
+    "typescript": "^4.0.3"
+  },
+  "devDependencies": {
+    "@types/node": "^15.3.0",
+    "ts-node-dev": "^1.0.0-pre.63"
+  },
+  "description": ""
+}
