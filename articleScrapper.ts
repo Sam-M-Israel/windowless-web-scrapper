@@ -1,4 +1,6 @@
 const puppeteer = require('puppeteer');
+// const spirolinaLogo = require('../server/logos/spirolinaLogo.png')
+// const allinLogo = require('../server/logos/allinLogo.png')
 
 export default async (articleUrl: string, authorName: string) => {
     // runPuppeteer(articleUrl)
@@ -14,14 +16,14 @@ async function scrap(url: string, authorName: string) {
     const result = []
     page.on('console', consoleObj => console.log(consoleObj.text()));
     const data = await page.evaluate((result, authorName) => {
-        const title = document.querySelector(
-            'div.singletext > div.stbold > p > span'
+        const title = document.querySelector(authorName === 'allin'?
+            'div.singletext > div.stbold > p > span': 'h1'
         ).textContent;
         const image = document.querySelector(
-            'div.singletext > div.sttop > p:nth-child(1) > img'
+            authorName === 'allin' ? 'div.singletext > div.sttop > p:nth-child(1) > img' : 'div.info-page-header  >  img'
         ).getAttribute('src');
 
-        const mainDiv = document.querySelector('div.singletext > div.sttop')
+        const mainDiv = document.querySelector(authorName === 'allin' ? 'div.singletext > div.sttop': '.info-page-description')
         const children = Array.from(mainDiv.children);
 
         children.forEach(child => {
